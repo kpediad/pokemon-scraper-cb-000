@@ -17,12 +17,12 @@ class Pokemon
 
   def self.find(id, db)
     sel = db.prepare('SELECT * FROM pokemon WHERE pokemon.id = ?')
-    result = sel.execute(id.to_s)
-    puts sel.inspect
-    puts result.inspect
+    rs = sel.execute(id)
+    row = rs.next
+    puts row.inspect
     #puts result.first['id']
     #puts result.first['name']
     #puts result.first['type']
-    pkmn = Pokemon.new(id: result[0], name: result[1], type: result[2], db: db) if !result
+    #pkmn = Pokemon.new(id: result[0], name: result[1], type: result[2], db: db) if !result
   end
 end
