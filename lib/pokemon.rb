@@ -7,4 +7,9 @@ class Pokemon
   def save
 
   end
+
+  def find(id)
+
+  end
 end
+
