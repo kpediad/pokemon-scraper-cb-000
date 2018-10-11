@@ -20,9 +20,9 @@ class Pokemon
     result = sel.execute(id)
     puts sel.inspect
     puts result.inspect
-    puts result[0][:id]
-    puts result[0][:name]
-    puts result[0][:type]
+    puts result[0]['id']
+    puts result[0]['name']
+    puts result[0]['type']
     pkmn = Pokemon.new(id: result[0], name: result[1], type: result[2], db: db) if !result
   end
 end
