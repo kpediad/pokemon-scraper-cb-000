@@ -11,9 +11,9 @@ class Pokemon
     ins.execute(name, type)
   end
 
-  def self.find(id)
-    sel = @db.prepare('SELECT * FROM pokemon WHERE pokemon.id = ?')
+  def self.find(id, db)
+    sel = db.prepare('SELECT * FROM pokemon WHERE pokemon.id = ?')
     result = sel.execute(id)
-    pkmn = Pokemon.new(id: result[0], name: result[1], type: result[2], db: @db) if !result.empty?
+    pkmn = Pokemon.new(id: result[0], name: result[1], type: result[2], db: db) if !result.empty?
   end
 end
