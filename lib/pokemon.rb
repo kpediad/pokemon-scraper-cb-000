@@ -18,7 +18,7 @@ class Pokemon
   def self.find(id, db)
     sel = db.prepare('SELECT * FROM pokemon WHERE pokemon.id = ?')
     result = sel.execute(id)
-    #puts result
+    puts sel.inspect
     puts result.inspect
     puts result[1]
     puts result[2]
