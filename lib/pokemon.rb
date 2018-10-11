@@ -19,10 +19,10 @@ class Pokemon
   def self.find(id, db)
     sel = db.prepare('SELECT * FROM pokemon WHERE pokemon.id = ?')
     result = sel.execute(id).next
-    pkmn = Pokemon.new(id: result[0], name: result[1], type: result[2], db: db) if !result.empty?
+    pkmn = Pokemon.new(id: result[0], name: result[1], type: result[2], db: db, hp: result[3]) if !result.empty?
   end
 
-  def alter_hp(hp)
+  def alter_hp(hp, db)
     @hp = hp
   end
 end
